@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kita.Pempek - Kuliner Autentik Palembang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --hijau: #2ecc71;
+            --hijau-gelap: #27ae60;
+            --orange: #e67e22;
+            --orange-gelap: #d35400;
+            --putih: #ffffff;
+            --abu: #ecf0f1;
+            --hitam: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--orange);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--orange-gelap);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--putih);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            color: var(--hitam);
+            margin-bottom: 0;
+        }
+        
+        .logo span {
+            color: var(--orange);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--hitam);
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--orange);
+        }
+        
+        /* Section 1: Hero with Green Background */
+  .hero {
+    background: linear-gradient(to right, rgba(39, 174, 96, 0.95), rgba(39, 174, 96, 0.95));
+    background-color: var(--hijau);
+    padding: 120px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-img img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.hero-text h1 span {
+    color: var(--orange);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-buttons .btn {
+    background-color: var(--putih);
+    color: var(--hijau-gelap);
+    border: 2px solid var(--hijau-gelap);
+}
+
+.hero-buttons .btn:hover {
+    background-color: var(--hijau-gelap);
+    color: var(--putih);
+    transform: translateY(-2px);
+}
+
+        /* Section 2: Menu Favorit */
+        .menu-favorit {
+            background-color: white;
+        }
+        
+        .menu-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .menu-desc {
+            padding-right: 30px;
+        }
+        
+        .menu-desc h3 {
+            font-size: 1.8rem;
+            color: var(--hitam);
+        }
+        
+        .menu-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Section 3: Pilihan Menu */
+        .pilihan-menu {
+            background-color: var(--abu);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-item:hover .menu-item-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item-content h3 {
+            color: var(--hitam);
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--orange);
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        
+        /* Section 4: Testimoni */
+        .testimoni {
+            background-color: white;
+        }
+        
+        .testimoni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimoni-card {
+            background-color: var(--abu);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimoni-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimoni-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        
+        .testimoni-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimoni-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .rating {
+            color: var(--orange);
+            margin-bottom: 5px;
+        }
+        
+        /* Section 5: Tentang Kami */
+        .tentang-kami {
+            background-color: var(--hijau);
+            color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid white;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-member h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .social-media {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .social-media a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-media a:hover {
+            color: var(--orange);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--hitam);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--orange);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+        
+            nav ul li {
+                margin: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-highlight {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-desc {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Kita.<span>Pempek</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#menu-favorit">Menu Favorit</a></li>
+                    <li><a href="#pilihan-menu">Pilihan Menu</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section 1: Hero with Green Background -->
+    <!-- Section 1: Hero with Green Background and Gambar Pempek -->
+<section class="hero" id="home">
+    <div class="container hero-content-grid">
+        <div class="hero-img">
+            <img src="pempek.jpeg" alt="Gambar Pempek">
+        </div>
+        <div class="hero-text">
+            <h1>Sajian Istimewa<br>Yang Memanjakan<br><span>Lidah Anda</span></h1>
+            <div class="hero-buttons">
+                <a href="#pesan" class="btn">Pemesanan</a>
+                <a href="#menu-favorit" class="btn">Menu</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section 2: Menu Favorit -->
+    <section class="menu-favorit" id="menu-favorit">
+        <div class="container">
+            <h2 class="text-center">Menu Favorit Kami</h2>
+            <p class="text-center">Pempek Kapal Selam - Hidangan istimewa yang paling dicari pelanggan</p>
+            
+            <div class="menu-highlight">
+                <div class="menu-desc">
+                    <h3>Pempek Kapal Selam</h3>
+                    <p>Pempek Kapal Selam adalah varian pempek yang paling populer dari Palembang. Dinamakan demikian karena bentuknya yang besar seperti kapal selam dengan isian telur di dalamnya.</p>
+                    <p>Kulit pempek yang kenyal dengan isian telur yang gurih, disajikan dengan kuah cuko yang asam, manis, dan pedas, menciptakan harmoni rasa yang sempurna.</p>
+                    <p>Dibuat dari bahan-bahan pilihan: ikan giling segar, tepung sagu pilihan, dan rempah-rempah khusus racikan kami.</p>
+                    <a href="#" class="btn">Pesan Sekarang</a>
+                </div>
+                <div class="menu-img">
+                    <img src="kapalselam.jpg" alt="Pempek Kapal Selam">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Pilihan Menu -->
+    <section class="pilihan-menu" id="pilihan-menu">
+        <div class="container">
+            <h2 class="text-center">Pilihan Menu di Restoran Kami</h2>
+            <p class="text-center">Berbagai variasi pempek dengan cita rasa autentik Palembang</p>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <img src="lenjer.jpg" alt="Pempek Lenjer">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3>Pempek Lenjer</h3>
+                        <p>Pempek bentuk panjang dengan tekstur kenyal yang khas</p>
+                        <p class="price">Rp 20.000</p>
+                        <a href="#" class="btn">Pesan</a>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <img src="kulit.jpg" alt="Pempek Kulit">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3>Pempek Kulit</h3>
+                        <p>Terbuat dari kulit ikan dengan cita rasa gurih yang khas</p>
+                        <p class="price">Rp 22.000</p>
+                        <a href="#" class="btn">Pesan</a>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <img src="adaan.jpg" alt="Pempek Adaan">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3>Pempek Adaan</h3>
+                        <p>Bentuk bulat dengan tekstur lembut di dalam</p>
+                        <p class="price">Rp 18.000</p>
+                        <a href="#" class="btn">Pesan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Testimoni -->
+    <section class="testimoni" id="testimoni">
+        <div class="container">
+            <h2 class="text-center">Apa Kata Pelanggan Kami</h2>
+            <p class="text-center">Testimoni dari mereka yang telah mencicipi kelezatan pempek kami</p>
+            
+            <div class="testimoni-grid">
+                <div class="testimoni-card">
+                    <div class="testimoni-header">
+                        <div class="testimoni-img">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Wijaya">
+                        </div>
+                        <div class="testimoni-info">
+                            <h4>Ila</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Pempek Kapal Selam di sini benar-benar autentik! Rasanya persis seperti yang saya makan waktu ke Palembang dulu. Kuah cukonya pas, tidak terlalu asam dan pedasnya mantap."</p>
+                </div>
+                
+                <div class="testimoni-card">
+                    <div class="testimoni-header">
+                        <div class="testimoni-img">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Budi Santoso">
+                        </div>
+                        <div class="testimoni-info">
+                            <h4>Brayen Mebel</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Saya penggemar berat pempek dan sudah mencoba banyak tempat, tapi Kita.Pempek ini yang terbaik! Teksturnya pas, tidak terlalu keras atau terlalu lembek."</p>
+                </div>
+                
+                <div class="testimoni-card">
+                    <div class="testimoni-header">
+                        <div class="testimoni-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi Lestari">
+                        </div>
+                        <div class="testimoni-info">
+                            <h4>Salwa</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Pelayanannya cepat dan ramah. Pempeknya fresh, bukan yang sudah dibekukan. Anak-anak saya sampai minta dibikinin setiap minggu!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Tentang Kami -->
+    <section class="tentang-kami" id="tentang-kami">
+        <div class="container">
+            <h2 class="text-center">Tim Kami</h2>
+            <p class="text-center">Orang-orang di balik kelezatan Kita.Pempek</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="aldies.jpg" alt="Aldies Dani Rahman Wahid">
+                    </div>
+                    <h3>Aldies Dani Rahman Wahid</h3>
+                    <p>Founder & Head Chef</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="melisa.png" alt="Melisa Tresia Patadang">
+                    </div>
+                    <h3>Melisa Tresia Patadang</h3>
+                    <p>Co-Founder & Marketing</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="nopal.jpeg" alt="Naufal Fadhil Asad">
+                    </div>
+                    <h3>Naufal Fadhil Asad</h3>
+                    <p>Finance Manager</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="angelo.jpg" alt="Angelo F. Hugo">
+                    </div>
+                    <h3>Angelo F. Hugo</h3>
+                    <p>Operations</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="sony.jpg" alt="Antonius Suban Toron">
+                    </div>
+                    <h3>Antonius Suban Toron</h3>
+                    <p>Customer Service</p>
+                </div>
+            </div>
+            
+            <div class="social-media">
+                <p>Follow kami di Instagram</p>
+                <a href="https://instagram.com/kita_pempek" target="_blank"><i class="fab fa-instagram"></i> @kita_pempek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <h1>Kita.<span>Pempek</span></h1>
+            </div>
+            <p>Sajian istimewa yang memanjakan lidah anda</p>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Kita.Pempek. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
